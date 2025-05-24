@@ -1,17 +1,27 @@
 version: '3.8'
 
 services:
-  web:
+  magic-unicorn-web:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: magic-unicorn-web
+    container_name: magic-unicorn-dev
     restart: unless-stopped
     ports:
-      - "3000:80"  # This makes it accessible on all networks at port 3000
+      - "8112:5173"  # External port 8112 -> Internal port 5173
+    volumes:
+      - .:/app
+      - /app/node_modules  # Prevent node_modules from being overwritten
+    environment:
+      - NODE_ENV=development
+      - VITE_HOST=0.0.0.0
+      - VITE_PORT=5173
     networks:
-      - magic-network
+      - magic-unicorn-network
+    stdin_open: true
+    tty: true
 
 networks:
-  magic-network:
+  magic-unicorn-network:
     driver: bridge
+    name: magic-unicorn-net
