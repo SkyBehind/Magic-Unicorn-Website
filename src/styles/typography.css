@@ -1,0 +1,417 @@
+/* Engaging Typography System - Larger & More Dynamic */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* Typography Scale - Much Larger for Desktop */
+  --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+  
+  /* Font Sizes - Larger Desktop, Comfortable Mobile */
+  --font-size-xs: clamp(0.875rem, 1vw, 1rem);
+  --font-size-sm: clamp(1rem, 1.2vw, 1.125rem);
+  --font-size-base: clamp(1.125rem, 1.5vw, 1.375rem);
+  --font-size-lg: clamp(1.25rem, 1.8vw, 1.625rem);
+  --font-size-xl: clamp(1.5rem, 2.2vw, 2rem);
+  --font-size-2xl: clamp(1.875rem, 2.8vw, 2.75rem);
+  --font-size-3xl: clamp(2.25rem, 3.5vw, 3.5rem);
+  --font-size-4xl: clamp(2.75rem, 4.2vw, 4.5rem);
+  --font-size-5xl: clamp(3.5rem, 5vw, 6rem);
+  --font-size-6xl: clamp(4.5rem, 6vw, 8rem);
+  
+  /* Line Heights - More Relaxed */
+  --line-height-tight: 1.2;
+  --line-height-snug: 1.35;
+  --line-height-normal: 1.6;
+  --line-height-relaxed: 1.75;
+  --line-height-loose: 2;
+  
+  /* Letter Spacing - More Dynamic */
+  --letter-spacing-tighter: -0.03em;
+  --letter-spacing-tight: -0.015em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.03em;
+  --letter-spacing-wider: 0.06em;
+  --letter-spacing-widest: 0.12em;
+}
+
+/* Base Typography - Larger and More Engaging */
+body {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  font-weight: var(--font-weight-normal);
+  letter-spacing: var(--letter-spacing-normal);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dynamic Heading Styles */
+h1, .h1 {
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-extrabold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tighter);
+  margin-bottom: 1.5rem;
+  background: var(--gradient-magic);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(182, 110, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+h1:hover, .h1:hover {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 4px 8px rgba(182, 110, 255, 0.4));
+}
+
+h2, .h2 {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  margin-bottom: 1.25rem;
+  background: linear-gradient(135deg, var(--unicorn-purple), var(--unicorn-blue), var(--unicorn-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease infinite;
+}
+
+h3, .h3 {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-tight);
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  position: relative;
+}
+
+h3::after, .h3::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--gradient-magic);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+h3:hover::after, .h3:hover::after {
+  width: 120px;
+}
+
+h4, .h4 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  margin-bottom: 0.875rem;
+  color: var(--unicorn-purple);
+  transition: color 0.3s ease;
+}
+
+h4:hover, .h4:hover {
+  color: var(--unicorn-blue);
+}
+
+h5, .h5 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+h6, .h6 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  margin-bottom: 0.625rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wider);
+}
+
+/* Engaging Text Styles */
+.text-xs { font-size: var(--font-size-xs); }
+.text-sm { font-size: var(--font-size-sm); }
+.text-base { font-size: var(--font-size-base); }
+.text-lg { font-size: var(--font-size-lg); }
+.text-xl { font-size: var(--font-size-xl); }
+.text-2xl { font-size: var(--font-size-2xl); }
+.text-3xl { font-size: var(--font-size-3xl); }
+
+/* Font Weight Utilities */
+.font-light { font-weight: var(--font-weight-light); }
+.font-normal { font-weight: var(--font-weight-normal); }
+.font-medium { font-weight: var(--font-weight-medium); }
+.font-semibold { font-weight: var(--font-weight-semibold); }
+.font-bold { font-weight: var(--font-weight-bold); }
+.font-extrabold { font-weight: var(--font-weight-extrabold); }
+
+/* Line Height Utilities */
+.leading-tight { line-height: var(--line-height-tight); }
+.leading-snug { line-height: var(--line-height-snug); }
+.leading-normal { line-height: var(--line-height-normal); }
+.leading-relaxed { line-height: var(--line-height-relaxed); }
+
+/* Letter Spacing Utilities */
+.tracking-tighter { letter-spacing: var(--letter-spacing-tighter); }
+.tracking-tight { letter-spacing: var(--letter-spacing-tight); }
+.tracking-normal { letter-spacing: var(--letter-spacing-normal); }
+.tracking-wide { letter-spacing: var(--letter-spacing-wide); }
+
+/* Special Dynamic Typography Classes */
+.text-gradient {
+  background: var(--gradient-magic);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+
+.text-gradient:hover {
+  background-size: 150% 150%;
+  transform: scale(1.02);
+}
+
+.text-glow {
+  color: var(--unicorn-purple);
+  text-shadow: 0 0 10px rgba(182, 110, 255, 0.5);
+  transition: text-shadow 0.3s ease;
+}
+
+.text-glow:hover {
+  text-shadow: 0 0 20px rgba(182, 110, 255, 0.8);
+}
+
+.text-pop {
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.text-pop:hover {
+  transform: translateY(-1px) scale(1.02);
+  color: var(--unicorn-blue);
+}
+
+.text-mono {
+  font-family: var(--font-family-mono);
+  font-variant-numeric: tabular-nums;
+  background: rgba(182, 110, 255, 0.1);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
+/* Enhanced Paragraph Styles */
+p {
+  margin-bottom: 1.5rem;
+  max-width: 70ch;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--text-primary);
+}
+
+.lead {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-relaxed);
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, var(--text-secondary), var(--unicorn-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.small {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+/* Dynamic Link Styles */
+a {
+  color: var(--unicorn-purple);
+  text-decoration: none;
+  transition: all var(--transition-base);
+  position: relative;
+  font-weight: var(--font-weight-medium);
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-magic);
+  transition: width 0.3s ease;
+}
+
+a:hover {
+  color: var(--unicorn-blue);
+  transform: translateY(-1px);
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+/* Enhanced Code Styles */
+code {
+  font-family: var(--font-family-mono);
+  font-size: 0.9em;
+  background: linear-gradient(135deg, rgba(182, 110, 255, 0.15), rgba(0, 212, 255, 0.1));
+  padding: 0.2rem 0.4rem;
+  border-radius: 6px;
+  color: var(--unicorn-purple);
+  border: 1px solid rgba(182, 110, 255, 0.2);
+  transition: all 0.2s ease;
+}
+
+code:hover {
+  background: linear-gradient(135deg, rgba(182, 110, 255, 0.25), rgba(0, 212, 255, 0.15));
+  transform: scale(1.02);
+}
+
+pre {
+  font-family: var(--font-family-mono);
+  background: var(--dark-surface);
+  padding: 1.5rem;
+  border-radius: 12px;
+  overflow-x: auto;
+  border: 1px solid rgba(182, 110, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced Quote Styles */
+blockquote {
+  border-left: 4px solid var(--unicorn-purple);
+  padding-left: 2rem;
+  margin: 2rem 0;
+  font-style: italic;
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  background: linear-gradient(135deg, rgba(182, 110, 255, 0.05), transparent);
+  padding: 1.5rem 2rem;
+  border-radius: 0 12px 12px 0;
+  position: relative;
+}
+
+blockquote::before {
+  content: '"';
+  font-size: 4rem;
+  color: var(--unicorn-purple);
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  opacity: 0.3;
+}
+
+/* Enhanced List Styles */
+ul, ol {
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+  font-size: var(--font-size-base);
+}
+
+li {
+  margin-bottom: 0.75rem;
+  line-height: var(--line-height-relaxed);
+  position: relative;
+}
+
+ul li::marker {
+  color: var(--unicorn-purple);
+  font-size: 1.2em;
+}
+
+ol li::marker {
+  color: var(--unicorn-blue);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Gradient Animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Focus Styles for Accessibility */
+:focus-visible {
+  outline: 3px solid var(--unicorn-purple);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Selection Styles */
+::selection {
+  background: rgba(182, 110, 255, 0.3);
+  color: var(--text-primary);
+}
+
+/* Print Styles */
+@media print {
+  body {
+    font-size: 14pt;
+    line-height: 1.6;
+    color: black;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    color: black;
+  }
+  
+  .text-gradient {
+    -webkit-text-fill-color: unset;
+    color: black;
+  }
+}
+
+/* Mobile Adjustments - Keep Text Readable */
+@media (max-width: 768px) {
+  :root {
+    --font-size-base: clamp(1rem, 3vw, 1.125rem);
+    --font-size-lg: clamp(1.125rem, 3.5vw, 1.25rem);
+    --font-size-xl: clamp(1.25rem, 4vw, 1.5rem);
+  }
+  
+  p {
+    max-width: 100%;
+  }
+  
+  h1:hover, .h1:hover,
+  h3:hover::after, .h3:hover::after,
+  .text-pop:hover {
+    transform: none;
+  }
+}

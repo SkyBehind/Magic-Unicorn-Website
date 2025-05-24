@@ -1,0 +1,220 @@
+/* Performance Optimization Styles */
+
+/* Critical rendering path optimization */
+.above-fold {
+  contain: layout style paint;
+}
+
+/* Image optimization */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Lazy loading styles */
+img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+img[loading="lazy"].loaded {
+  opacity: 1;
+}
+
+/* Intersection Observer optimization */
+.lazy-section {
+  min-height: 200px;
+  contain: layout;
+}
+
+/* GPU acceleration for animations */
+.gpu-accelerated,
+.btn,
+.card,
+.feature-card,
+.toolkit-card,
+.sparkle {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Reduce paint operations */
+.static-element {
+  contain: strict;
+}
+
+/* Optimize font loading */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Preload critical resources */
+.preload-hint::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB2aWV3Qm94PSIwIDAgMSAxIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InRyYW5zcGFyZW50Ii8+PC9zdmc+');
+}
+
+/* Reduce layout thrashing */
+.layout-stable {
+  contain: layout;
+  min-height: 1px;
+}
+
+/* Optimize animations for 60fps */
+@media (prefers-reduced-motion: no-preference) {
+  .smooth-animation {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    animation-fill-mode: both;
+  }
+}
+
+/* Critical CSS inlining hint */
+.critical-css {
+  /* Styles that should be inlined */
+  font-family: var(--font-family-primary);
+  background-color: var(--dark-bg);
+  color: var(--text-primary);
+}
+
+/* Defer non-critical styles */
+.non-critical {
+  /* Styles that can be loaded asynchronously */
+  contain: style;
+}
+
+/* Optimize repaints */
+.repaint-boundary {
+  isolation: isolate;
+}
+
+/* Memory optimization */
+.memory-efficient {
+  contain: size layout style paint;
+}
+
+/* Reduce composite layers */
+.composite-layer {
+  will-change: transform;
+}
+
+.composite-layer:not(:hover):not(:focus):not(.active) {
+  will-change: auto;
+}
+
+/* Optimize scrolling performance */
+.scroll-container {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* Reduce JavaScript layout calculations */
+.js-optimized {
+  transform: translateZ(0);
+  contain: layout style paint;
+}
+
+/* Optimize for mobile performance */
+@media (max-width: 768px) {
+  .mobile-optimized {
+    contain: layout style;
+    transform: translateZ(0);
+  }
+  
+  /* Reduce animation complexity on mobile */
+  .complex-animation {
+    animation: none;
+  }
+  
+  /* Simplify hover effects for touch devices */
+  .hover-effect:hover {
+    transform: none;
+  }
+}
+
+/* Battery optimization */
+@media (prefers-reduced-motion: reduce) {
+  .battery-conscious {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Network-aware loading */
+@media (prefers-reduced-data: reduce) {
+  .data-conscious {
+    background-image: none;
+  }
+  
+  .data-conscious::before,
+  .data-conscious::after {
+    display: none;
+  }
+}
+
+/* Optimize for low-end devices */
+@media (max-width: 480px) and (max-height: 800px) {
+  .low-end-optimized {
+    contain: strict;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Preconnect hints for external resources */
+.external-resource-hint {
+  /* Add preconnect hints in HTML for:
+     - Google Fonts
+     - CDN resources
+     - Analytics
+  */
+}
+
+/* Service Worker cache optimization */
+.cacheable-resource {
+  /* Resources that should be cached by service worker */
+  cache-control: public, max-age=31536000;
+}
+
+/* Critical resource prioritization */
+.high-priority {
+  /* High priority resources */
+  importance: high;
+}
+
+.low-priority {
+  /* Low priority resources */
+  importance: low;
+}
+
+/* Optimize for Core Web Vitals */
+.cwv-optimized {
+  /* Largest Contentful Paint optimization */
+  contain: layout style paint;
+  
+  /* First Input Delay optimization */
+  pointer-events: auto;
+  
+  /* Cumulative Layout Shift optimization */
+  aspect-ratio: attr(width) / attr(height);
+}
+
+/* Resource hints */
+.resource-hints {
+  /* Use in HTML:
+     <link rel="preload" href="critical.css" as="style">
+     <link rel="prefetch" href="non-critical.js">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+  */
+}
